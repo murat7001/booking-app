@@ -4,6 +4,7 @@ const LoginPage = () => {
     return (
         <div>
             
+            <form ></form>
         </div>
     )
 }
