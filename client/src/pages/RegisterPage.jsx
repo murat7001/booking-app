@@ -18,6 +18,7 @@ const RegisterPage = () => {
             alert('Registration succesfully...')
         } catch (error) {
             alert('Registration failed...')
+            console.log(error)
         }
     }
     return (

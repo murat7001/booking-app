@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(cors({
     credentials: true,
-    origin: 'http://127.0.0.1:5173',
+    origin: 'http://localhost:5173',
 }));
 
 async function uploadToS3(path, originalFilename, mimetype) {
@@ -58,12 +58,12 @@ function getUserDataFromReq(req) {
     });
 }
 
-app.get('/api/test', (req, res) => {
+app.get('/test', (req, res) => {
     mongoose.connect(process.env.MONGO_URL);
     res.json('test ok');
 });
 
-app.post('/api/register', async (req, res) => {
+app.post('/register', async (req, res) => {
     mongoose.connect(process.env.MONGO_URL);
     const { name, email, password } = req.body;
 
@@ -80,7 +80,7 @@ app.post('/api/register', async (req, res) => {
 
 });
 
-app.post('/api/login', async (req, res) => {
+app.post('/login', async (req, res) => {
     mongoose.connect(process.env.MONGO_URL);
     const { email, password } = req.body;
     const userDoc = await User.findOne({ email });
